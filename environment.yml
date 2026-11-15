@@ -1,0 +1,13 @@
+name: bioinformatics-pipeline-template
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - nextflow=23.10.1
+  - mamba=1.5.8
+  - fastqc=0.12.1
+  - fastp=0.23.4
+  - star=2.7.11b
+  - salmon=1.10.2
+  - multiqc=1.21
+  - nf-test=0.8.4

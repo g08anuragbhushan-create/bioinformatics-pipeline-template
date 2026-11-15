@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: 'If you use this workflow template, please cite it as shown here.'
+authors:
+  - family-names: Bhushan
+    given-names: Anurag
+title: 'bioinformatics-pipeline-template'
+version: 0.1.0
+date-released: 2026-11-15
+license: MIT
+keywords:
+  - nextflow
+  - bioinformatics
+  - reproducibility
+  - rna-seq

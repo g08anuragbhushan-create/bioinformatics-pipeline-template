@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Nextflow
+        uses: nf-core/setup-nextflow@v2
+
+      - name: Install nf-test
+        run: |
+          curl -fsSL https://code.askimed.com/install/nf-test | bash
+          sudo mv nf-test /usr/local/bin/
+
+      - name: Run tests
+        run: nf-test test tests/ --profile=test,conda
+
+      - name: Lint with nf-core tools
+        run: |
+          pip install nf-core
+          nf-core lint
+
+      - name: Smoke run
+        run: nextflow run main.nf -profile test,conda -ansi-log false

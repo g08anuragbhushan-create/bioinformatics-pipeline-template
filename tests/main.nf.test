@@ -1,0 +1,17 @@
+nextflow_pipeline {
+
+    name 'Test bioinformatics-pipeline-template'
+
+    test('Smoke test on miniature dataset') {
+        when {
+            params {
+                input  = "${projectDir}/assets/samplesheet.csv"
+                outdir = "results_test"
+            }
+        }
+        then {
+            assert workflow.success
+            assert path("${params.outdir}/multiqc/multiqc_report.html").exists()
+        }
+    }
+}

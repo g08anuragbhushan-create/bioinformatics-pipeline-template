@@ -1,0 +1,6 @@
+.nextflow*
+work/
+results/
+results_test/
+*.pyc
+.DS_Store
